@@ -32,7 +32,6 @@ namespace M17A_Prototipo_2025_26_12H
             {
                 //se não existir
                 //criar a bd
-                //TODO: verificar se a bd existe no catálogo
                 CriarBD();
             }
             //ligação à bd
@@ -47,10 +46,42 @@ namespace M17A_Prototipo_2025_26_12H
             //ligação ao servidor
             ligacaoSQL = new SqlConnection(strligacao);
             ligacaoSQL.Open();
+            //veirificar se a bd já existe no catalogo
+            string sql = $@"
+                        IF EXISTS(SELECT * FROM master.sys.databases
+                                    WHERE name='{this.NomeBD}')
+                          BEGIN
+                                USE [master];
+                                EXEC sp_detach_db {this.NomeBD};
+                          END
+                        ";
+                        
+            SqlCommand comando = new SqlCommand(sql, ligacaoSQL);
+            comando.ExecuteNonQuery();
             //criar a bd
-            SqlCommand comnando=new SqlCommand()
+            sql = $"CREATE DATABASE {this.NomeBD} ON PRIMARY (NAME={this.NomeBD},FILENAME='{this.CaminhoBD}')";
+            comando = new SqlCommand(sql, ligacaoSQL);
+            comando.ExecuteNonQuery();
+            //Associação a ligação à base de dados criada
+            ligacaoSQL.ChangeDatabase(this.NomeBD);
             //criar as tabelas
-
+            //criar tabela livros
+            sql = @"CREATE TABLE Livros(
+                    nlivro int identity primary key,
+                    titulo varchar(50) not null,
+                    autor   varchar(100),
+                    editora varchar(100),
+                    isbn   varchar(13), 
+                    ano     int check (ano > 0),
+                    data_aquisicao date default getdate(),
+                    preco   money,
+                    capa    varchar(500),
+                    estado  bit default 1
+                    );";
+            //TODO: faltam as tabelas leitores e empréstimos
+            comando=new SqlCommand(sql, ligacaoSQL);
+            comando.ExecuteNonQuery();
+            comando.Dispose();
         }
     }
 
