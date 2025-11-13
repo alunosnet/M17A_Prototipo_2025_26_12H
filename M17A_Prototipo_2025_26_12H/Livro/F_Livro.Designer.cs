@@ -28,16 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tb_titulo = new System.Windows.Forms.TextBox();
+            this.tb_autor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.tb_editora = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.tb_isbn = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.tb_ano = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.tb_preco = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pb_capa = new System.Windows.Forms.PictureBox();
+            this.dtp_data = new System.Windows.Forms.DateTimePicker();
+            this.bt_procurar = new System.Windows.Forms.Button();
+            this.bt_guardar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_capa)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,95 +65,169 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(70, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 0;
-            this.label2.Text = "label1";
+            this.label2.Text = "Autor";
+            // 
+            // tb_titulo
+            // 
+            this.tb_titulo.Location = new System.Drawing.Point(171, 43);
+            this.tb_titulo.Name = "tb_titulo";
+            this.tb_titulo.Size = new System.Drawing.Size(234, 20);
+            this.tb_titulo.TabIndex = 1;
+            // 
+            // tb_autor
+            // 
+            this.tb_autor.Location = new System.Drawing.Point(171, 74);
+            this.tb_autor.Name = "tb_autor";
+            this.tb_autor.Size = new System.Drawing.Size(234, 20);
+            this.tb_autor.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(70, 99);
+            this.label3.Location = new System.Drawing.Point(70, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "label1";
+            this.label3.Text = "Editora";
+            // 
+            // tb_editora
+            // 
+            this.tb_editora.Location = new System.Drawing.Point(171, 110);
+            this.tb_editora.Name = "tb_editora";
+            this.tb_editora.Size = new System.Drawing.Size(234, 20);
+            this.tb_editora.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(70, 126);
+            this.label4.Location = new System.Drawing.Point(70, 148);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "label1";
+            this.label4.Text = "ISBN";
+            // 
+            // tb_isbn
+            // 
+            this.tb_isbn.Location = new System.Drawing.Point(171, 148);
+            this.tb_isbn.Name = "tb_isbn";
+            this.tb_isbn.Size = new System.Drawing.Size(234, 20);
+            this.tb_isbn.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(70, 153);
+            this.label5.Location = new System.Drawing.Point(70, 184);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "label1";
+            this.label5.Text = "Ano publicação";
+            // 
+            // tb_ano
+            // 
+            this.tb_ano.Location = new System.Drawing.Point(171, 184);
+            this.tb_ano.Name = "tb_ano";
+            this.tb_ano.Size = new System.Drawing.Size(234, 20);
+            this.tb_ano.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(70, 181);
+            this.label6.Location = new System.Drawing.Point(70, 221);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 0;
-            this.label6.Text = "label1";
+            this.label6.Text = "Data Aquisição";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(70, 210);
+            this.label7.Location = new System.Drawing.Point(70, 260);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 0;
-            this.label7.Text = "label1";
+            this.label7.Text = "Preço";
+            // 
+            // tb_preco
+            // 
+            this.tb_preco.Location = new System.Drawing.Point(171, 260);
+            this.tb_preco.Name = "tb_preco";
+            this.tb_preco.Size = new System.Drawing.Size(234, 20);
+            this.tb_preco.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(70, 241);
+            this.label8.Location = new System.Drawing.Point(70, 300);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 0;
-            this.label8.Text = "label1";
+            this.label8.Text = "Capa";
             // 
-            // textBox1
+            // pb_capa
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 20);
-            this.textBox1.TabIndex = 1;
+            this.pb_capa.Location = new System.Drawing.Point(144, 298);
+            this.pb_capa.Name = "pb_capa";
+            this.pb_capa.Size = new System.Drawing.Size(263, 111);
+            this.pb_capa.TabIndex = 2;
+            this.pb_capa.TabStop = false;
             // 
-            // textBox2
+            // dtp_data
             // 
-            this.textBox2.Location = new System.Drawing.Point(142, 74);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(203, 20);
-            this.textBox2.TabIndex = 1;
+            this.dtp_data.Location = new System.Drawing.Point(186, 222);
+            this.dtp_data.Name = "dtp_data";
+            this.dtp_data.Size = new System.Drawing.Size(218, 20);
+            this.dtp_data.TabIndex = 3;
+            // 
+            // bt_procurar
+            // 
+            this.bt_procurar.Location = new System.Drawing.Point(148, 419);
+            this.bt_procurar.Name = "bt_procurar";
+            this.bt_procurar.Size = new System.Drawing.Size(258, 23);
+            this.bt_procurar.TabIndex = 4;
+            this.bt_procurar.Text = "Procurar...";
+            this.toolTip1.SetToolTip(this.bt_procurar, "Procurar o ficheiro para a capa do livro.");
+            this.bt_procurar.UseVisualStyleBackColor = true;
+            this.bt_procurar.Click += new System.EventHandler(this.bt_procurar_Click);
+            // 
+            // bt_guardar
+            // 
+            this.bt_guardar.Location = new System.Drawing.Point(145, 463);
+            this.bt_guardar.Name = "bt_guardar";
+            this.bt_guardar.Size = new System.Drawing.Size(260, 40);
+            this.bt_guardar.TabIndex = 5;
+            this.bt_guardar.Text = "Guardar";
+            this.toolTip1.SetToolTip(this.bt_guardar, "Guarda os dados na base de dados.");
+            this.bt_guardar.UseVisualStyleBackColor = true;
+            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
             // 
             // F_Livro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(800, 520);
+            this.Controls.Add(this.bt_guardar);
+            this.Controls.Add(this.bt_procurar);
+            this.Controls.Add(this.dtp_data);
+            this.Controls.Add(this.pb_capa);
+            this.Controls.Add(this.tb_preco);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.tb_ano);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.tb_isbn);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.tb_editora);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.tb_autor);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.tb_titulo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "F_Livro";
             this.Text = "F_Livro";
+            ((System.ComponentModel.ISupportInitialize)(this.pb_capa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,13 +237,22 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tb_titulo;
+        private System.Windows.Forms.TextBox tb_autor;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tb_editora;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tb_isbn;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tb_ano;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tb_preco;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.PictureBox pb_capa;
+        private System.Windows.Forms.DateTimePicker dtp_data;
+        private System.Windows.Forms.Button bt_procurar;
+        private System.Windows.Forms.Button bt_guardar;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
