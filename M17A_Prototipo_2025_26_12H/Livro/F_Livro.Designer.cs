@@ -48,7 +48,14 @@
             this.bt_procurar = new System.Windows.Forms.Button();
             this.bt_guardar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lb_feedback = new System.Windows.Forms.Label();
+            this.dgv_livros = new System.Windows.Forms.DataGridView();
+            this.tb_pesquisa = new System.Windows.Forms.TextBox();
+            this.bt_editar = new System.Windows.Forms.Button();
+            this.bt_eliminar = new System.Windows.Forms.Button();
+            this.bt_imprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_capa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_livros)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -170,6 +177,7 @@
             this.pb_capa.Location = new System.Drawing.Point(144, 298);
             this.pb_capa.Name = "pb_capa";
             this.pb_capa.Size = new System.Drawing.Size(263, 111);
+            this.pb_capa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_capa.TabIndex = 2;
             this.pb_capa.TabStop = false;
             // 
@@ -202,11 +210,70 @@
             this.bt_guardar.UseVisualStyleBackColor = true;
             this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
             // 
+            // lb_feedback
+            // 
+            this.lb_feedback.AutoSize = true;
+            this.lb_feedback.Location = new System.Drawing.Point(41, 503);
+            this.lb_feedback.Name = "lb_feedback";
+            this.lb_feedback.Size = new System.Drawing.Size(0, 13);
+            this.lb_feedback.TabIndex = 6;
+            // 
+            // dgv_livros
+            // 
+            this.dgv_livros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_livros.Location = new System.Drawing.Point(456, 74);
+            this.dgv_livros.Name = "dgv_livros";
+            this.dgv_livros.Size = new System.Drawing.Size(639, 345);
+            this.dgv_livros.TabIndex = 7;
+            this.dgv_livros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_livros_CellClick);
+            this.dgv_livros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_livros_CellContentClick);
+            // 
+            // tb_pesquisa
+            // 
+            this.tb_pesquisa.Location = new System.Drawing.Point(453, 46);
+            this.tb_pesquisa.Name = "tb_pesquisa";
+            this.tb_pesquisa.Size = new System.Drawing.Size(641, 20);
+            this.tb_pesquisa.TabIndex = 8;
+            // 
+            // bt_editar
+            // 
+            this.bt_editar.Location = new System.Drawing.Point(470, 445);
+            this.bt_editar.Name = "bt_editar";
+            this.bt_editar.Size = new System.Drawing.Size(162, 57);
+            this.bt_editar.TabIndex = 9;
+            this.bt_editar.Text = "Editar";
+            this.bt_editar.UseVisualStyleBackColor = true;
+            // 
+            // bt_eliminar
+            // 
+            this.bt_eliminar.Location = new System.Drawing.Point(638, 445);
+            this.bt_eliminar.Name = "bt_eliminar";
+            this.bt_eliminar.Size = new System.Drawing.Size(162, 57);
+            this.bt_eliminar.TabIndex = 9;
+            this.bt_eliminar.Text = "Eliminar";
+            this.bt_eliminar.UseVisualStyleBackColor = true;
+            this.bt_eliminar.Click += new System.EventHandler(this.bt_eliminar_Click);
+            // 
+            // bt_imprimir
+            // 
+            this.bt_imprimir.Location = new System.Drawing.Point(806, 445);
+            this.bt_imprimir.Name = "bt_imprimir";
+            this.bt_imprimir.Size = new System.Drawing.Size(162, 57);
+            this.bt_imprimir.TabIndex = 9;
+            this.bt_imprimir.Text = "Imprimir";
+            this.bt_imprimir.UseVisualStyleBackColor = true;
+            // 
             // F_Livro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 520);
+            this.ClientSize = new System.Drawing.Size(1133, 520);
+            this.Controls.Add(this.bt_imprimir);
+            this.Controls.Add(this.bt_eliminar);
+            this.Controls.Add(this.bt_editar);
+            this.Controls.Add(this.tb_pesquisa);
+            this.Controls.Add(this.dgv_livros);
+            this.Controls.Add(this.lb_feedback);
             this.Controls.Add(this.bt_guardar);
             this.Controls.Add(this.bt_procurar);
             this.Controls.Add(this.dtp_data);
@@ -227,7 +294,9 @@
             this.Controls.Add(this.label1);
             this.Name = "F_Livro";
             this.Text = "F_Livro";
+            this.Load += new System.EventHandler(this.F_Livro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_capa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_livros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +323,11 @@
         private System.Windows.Forms.Button bt_procurar;
         private System.Windows.Forms.Button bt_guardar;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label lb_feedback;
+        private System.Windows.Forms.DataGridView dgv_livros;
+        private System.Windows.Forms.TextBox tb_pesquisa;
+        private System.Windows.Forms.Button bt_editar;
+        private System.Windows.Forms.Button bt_eliminar;
+        private System.Windows.Forms.Button bt_imprimir;
     }
 }
