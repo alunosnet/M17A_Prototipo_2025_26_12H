@@ -184,6 +184,8 @@ namespace M17A_Prototipo_2025_26_12H.Livro
         {
             //criar um objeto do tipo livro
             Livro novo = new Livro(bd);
+            //ISTO É NOVO
+            novo.nlivro= nlivro;
             //preencher os dados do livro
             novo.titulo = tb_titulo.Text;
             novo.autor = tb_autor.Text;
