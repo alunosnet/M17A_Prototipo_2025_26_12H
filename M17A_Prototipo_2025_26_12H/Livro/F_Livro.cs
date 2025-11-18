@@ -121,6 +121,24 @@ namespace M17A_Prototipo_2025_26_12H.Livro
             if (linha == -1)
                 return;
             nlivro = int.Parse(dgv_livros.Rows[linha].Cells[0].Value.ToString());
+            //esconder o botão de adicionar novo
+            bt_guardar.Visible = false;
+            //preencher os form com os dados do livro selecionado
+            Livro l = new Livro(bd);
+            l.nlivro = nlivro;
+            l.Procurar();
+            tb_titulo.Text = l.titulo;
+            tb_autor.Text= l.autor;
+            tb_editora.Text = l.editora;
+            tb_ano.Text = l.ano.ToString();
+            tb_isbn.Text = l.isbn;
+            dtp_data.Value = l.data_aquisicao;
+            if (System.IO.File.Exists(l.capa))
+                pb_capa.Image = Image.FromFile(l.capa);
+            tb_preco.Text = l.preco.ToString();
+            //mostrar os botões editar/eliminar/cancelar
+            bt_editar.Visible = true;
+            bt_eliminar.Visible = true;
         }
         //Elimnar o livro selecionado
         private void bt_eliminar_Click(object sender, EventArgs e)
@@ -143,7 +161,66 @@ namespace M17A_Prototipo_2025_26_12H.Livro
                 apagar.nlivro= nlivro;
                 apagar.Apagar();
                 ListarLivros();
+                nlivro = 0;
             }
+        }
+        /// <summary>
+        /// Botão cancelar limpa o formulário
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LimparForm();
+            nlivro = 0;
+            bt_editar.Visible = false;
+        }
+        /// <summary>
+        /// Botão para atualizar o registo selecionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bt_editar_Click(object sender, EventArgs e)
+        {
+            //criar um objeto do tipo livro
+            Livro novo = new Livro(bd);
+            //preencher os dados do livro
+            novo.titulo = tb_titulo.Text;
+            novo.autor = tb_autor.Text;
+            novo.editora = tb_editora.Text;
+            novo.isbn = tb_isbn.Text;
+            novo.ano = int.Parse(tb_ano.Text);
+            novo.data_aquisicao = dtp_data.Value;
+            novo.preco = Decimal.Parse(tb_preco.Text);
+            novo.capa = Utils.PastaDoPrograma("M17A_Biblioteca") + @"\" + novo.isbn;
+            //validar os dados
+            List<string> erros = novo.Validar();
+            //se não tiver erros nos dados
+            if (erros.Count > 0)
+            {
+                //mostrar os erros
+                string mensagem = "";
+                foreach (string erro in erros)
+                    mensagem += erro + "; ";
+                lb_feedback.Text = mensagem;
+                lb_feedback.ForeColor = Color.Red;
+                return;
+            }
+            //guardar na base de dados
+            novo.Atualizar();
+            //copiar a capa para a pasta do programa
+            if (capa != "")
+            {
+                if (System.IO.File.Exists(capa))
+                    System.IO.File.Copy(capa, novo.capa, true);
+            }
+            //limpar o form
+            LimparForm();
+            //atualizar a lista do livros na datagrid
+            ListarLivros();
+            //feedback user
+            lb_feedback.Text = "Livro atualizado com sucesso.";
+            lb_feedback.ForeColor = Color.Black;
         }
     }
 }

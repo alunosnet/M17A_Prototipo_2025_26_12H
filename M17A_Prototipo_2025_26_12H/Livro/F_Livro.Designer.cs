@@ -54,6 +54,7 @@
             this.bt_editar = new System.Windows.Forms.Button();
             this.bt_eliminar = new System.Windows.Forms.Button();
             this.bt_imprimir = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_capa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_livros)).BeginInit();
             this.SuspendLayout();
@@ -201,9 +202,9 @@
             // 
             // bt_guardar
             // 
-            this.bt_guardar.Location = new System.Drawing.Point(145, 463);
+            this.bt_guardar.Location = new System.Drawing.Point(186, 448);
             this.bt_guardar.Name = "bt_guardar";
-            this.bt_guardar.Size = new System.Drawing.Size(260, 40);
+            this.bt_guardar.Size = new System.Drawing.Size(219, 55);
             this.bt_guardar.TabIndex = 5;
             this.bt_guardar.Text = "Guardar";
             this.toolTip1.SetToolTip(this.bt_guardar, "Guarda os dados na base de dados.");
@@ -241,8 +242,9 @@
             this.bt_editar.Name = "bt_editar";
             this.bt_editar.Size = new System.Drawing.Size(162, 57);
             this.bt_editar.TabIndex = 9;
-            this.bt_editar.Text = "Editar";
+            this.bt_editar.Text = "Atualizar";
             this.bt_editar.UseVisualStyleBackColor = true;
+            this.bt_editar.Click += new System.EventHandler(this.bt_editar_Click);
             // 
             // bt_eliminar
             // 
@@ -263,11 +265,22 @@
             this.bt_imprimir.Text = "Imprimir";
             this.bt_imprimir.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(44, 449);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 54);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // F_Livro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 520);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bt_imprimir);
             this.Controls.Add(this.bt_eliminar);
             this.Controls.Add(this.bt_editar);
@@ -292,6 +305,8 @@
             this.Controls.Add(this.tb_titulo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "F_Livro";
             this.Text = "F_Livro";
             this.Load += new System.EventHandler(this.F_Livro_Load);
@@ -329,5 +344,6 @@
         private System.Windows.Forms.Button bt_editar;
         private System.Windows.Forms.Button bt_eliminar;
         private System.Windows.Forms.Button bt_imprimir;
+        private System.Windows.Forms.Button button1;
     }
 }
