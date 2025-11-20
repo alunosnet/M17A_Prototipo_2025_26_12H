@@ -224,5 +224,27 @@ namespace M17A_Prototipo_2025_26_12H.Livro
             lb_feedback.Text = "Livro atualizado com sucesso.";
             lb_feedback.ForeColor = Color.Black;
         }
+        //Pesquisar os livros cujo titulo é "parecido" com o texto da tb
+        private void tb_pesquisa_TextChanged(object sender, EventArgs e)
+        {
+            Livro l = new Livro(bd);
+            dgv_livros.DataSource = l.Procurar("titulo", tb_pesquisa.Text);
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Impressora i = new Impressora();
+            i.imprimeGrelha(printDocument1, e, dgv_livros);
+        }
+        /// <summary>
+        /// Imprimir o conteúdo da DataGrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bt_imprimir_Click(object sender, EventArgs e)
+        {
+            printDocument1.DefaultPageSettings.Landscape = true;
+            printPreviewDialog1.ShowDialog();
+        }
     }
 }

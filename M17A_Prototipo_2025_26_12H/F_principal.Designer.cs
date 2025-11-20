@@ -94,6 +94,7 @@
             this.empréstimosToolStripMenuItem.Name = "empréstimosToolStripMenuItem";
             this.empréstimosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.empréstimosToolStripMenuItem.Text = "E&mpréstimos";
+            this.empréstimosToolStripMenuItem.Click += new System.EventHandler(this.empréstimosToolStripMenuItem_Click);
             // 
             // F_principal
             // 
