@@ -37,5 +37,23 @@ namespace M17A_Prototipo_2025_26_12H
             F_Emprestimo f = new F_Emprestimo(bd);
             f.Show();
         }
+
+        private void devoluçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            F_Devolve f = new F_Devolve(bd);
+            f.Show();
+        }
+
+        private void cb_consultas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_consultas.SelectedIndex <= 0) return;
+            string[] consultas = new string[] { "",
+                @"SELECT Emprestimos.*,Leitores.Nome,Livros.Titulo 
+                    FROM Emprestimos INNER JOIN Leitores ON Leitores.nleitor = Emprestimos.nleitor
+                    INNER JOIN Livros ON Livros.nlivro = Emprestimos.nlivro" };
+            DataTable dados = bd.DevolveSQL(consultas[cb_consultas.SelectedIndex]);
+
+            dgv_consultas.DataSource = dados;
+        }
     }
 }

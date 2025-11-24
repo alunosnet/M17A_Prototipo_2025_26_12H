@@ -180,6 +180,10 @@ namespace M17A_Prototipo_2025_26_12H.Livro
         {
             return bd.DevolveSQL("SELECT nlivro,titulo,autor,editora,estado FROM Livros ORDER BY titulo");
         }
+        public DataTable ListarEmprestados()
+        {
+            return bd.DevolveSQL("SELECT nlivro,titulo,autor,editora,estado FROM Livros WHERE estado=0 ORDER BY titulo");
+        }
         /// <summary>
         /// Pesquisa o nlivro na bd e preenche as propriedades do objeto
         /// </summary>
