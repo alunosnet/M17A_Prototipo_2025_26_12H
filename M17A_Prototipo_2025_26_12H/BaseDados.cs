@@ -39,6 +39,7 @@ namespace M17A_Prototipo_2025_26_12H
             ligacaoSQL = new SqlConnection(strligacao);
             ligacaoSQL.Open();
             ligacaoSQL.ChangeDatabase(this.NomeBD);
+            CriarTabelas();
         }
         //destrutor
         ~BaseDados()
@@ -66,11 +67,18 @@ namespace M17A_Prototipo_2025_26_12H
             sql = $"CREATE DATABASE {this.NomeBD} ON PRIMARY (NAME={this.NomeBD},FILENAME='{this.CaminhoBD}')";
             comando = new SqlCommand(sql, ligacaoSQL);
             comando.ExecuteNonQuery();
+            
+        }
+        void CriarTabelas()
+        {
             //Associação a ligação à base de dados criada
             ligacaoSQL.ChangeDatabase(this.NomeBD);
             //criar as tabelas
             //criar tabela livros
-            sql = @"CREATE TABLE Livros(
+            string sql = @"
+                IF (OBJECT_ID('Livros') IS NULL )
+                BEGIN
+                    CREATE TABLE Livros(
                     nlivro int identity primary key,
                     titulo varchar(50) not null,
                     autor   varchar(100),
@@ -82,6 +90,9 @@ namespace M17A_Prototipo_2025_26_12H
                     capa    varchar(500),
                     estado  bit default 1
                     );
+                END
+                IF (OBJECT_ID('Leitores') IS NULL )
+                BEGIN
                     CREATE TABLE Leitores(
                         nleitor int identity primary key,
                         nome varchar(100),
@@ -89,6 +100,9 @@ namespace M17A_Prototipo_2025_26_12H
                         fotografia varbinary(max),
                         estado bit default 1
                     );
+                END
+                IF (OBJECT_ID('Emprestimos') IS NULL )
+                BEGIN
                     CREATE TABLE Emprestimos(
                         nemprestimo int identity primary key,
                         data_emprestimo date default getdate(),
@@ -96,12 +110,12 @@ namespace M17A_Prototipo_2025_26_12H
                         estado bit default 1,
                         nleitor int references leitores(nleitor),
                         nlivro int references livros(nlivro)
-                    )";
-            comando = new SqlCommand(sql, ligacaoSQL);
+                    )
+                END";
+            SqlCommand comando = new SqlCommand(sql, ligacaoSQL);
             comando.ExecuteNonQuery();
             comando.Dispose();
         }
-    
         //função para executar comando sql (insert/delete/update/create/alter...)
         public void ExecutarSQL(string sql,List<SqlParameter> parametros=null)
         {
